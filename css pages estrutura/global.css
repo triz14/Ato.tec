@@ -1,0 +1,55 @@
+@import './main.css';
+@import './header.css';
+@import './footer.css';
+/* font-family: 'Gelasio', serif;
+font-family: 'Itim', cursive; */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #F0E9E0;
+}   
+
+ul{
+    list-style: none;
+    font-family: 'Gelasio', serif; 
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    position: fixed; 
+    top: 0px; 
+    background: black; 
+    width: 100%; 
+    z-index: 1000; 
+} 
+
+section{
+    position: relative;
+    height: calc(100vh - 3rem);
+    width: 100%;
+} 
+
+main{
+    margin-top: 68px;
+}   
+
+h2{
+    font-size: 1.7rem;
+    padding-bottom: 1rem;
+    padding-left: 2.4rem;
+    font-family: 'Gelasio', serif; 
+} 
+
+footer{
+    background: black;
+    color: #fff;
+    margin-top: 5rem;
+}

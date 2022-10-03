@@ -1,0 +1,56 @@
+.titulo{
+    background: #FFD26E;
+    font-family: 'Itim', cursive; 
+    justify-content: center;
+    display: flex; 
+    padding-block: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.sub-t{
+    padding-top: 1.5rem;
+}
+
+.paragrafo-1 {
+    font-family: 'Gelasio', serif; 
+    font-size: 1.4rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    text-align: justify;
+    text-indent: 3rem;
+    padding-bottom: 0.8rem;
+    margin-top: 2.5rem;
+}
+
+.paragrafo-2, .paragrafo-3, .paragrafo-4, .paragrafo-5{
+    font-family: 'Gelasio', serif; 
+    font-size: 1.4rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    text-align: justify;
+    text-indent: 3rem;
+    padding-bottom: 0.8rem;
+    margin-top: 0rem;
+}
+
+.modelos, .dalton, .thomson, .rutherford{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+    margin-top: 2rem;
+}
+
+.bohr{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.sub-titulo{
+    font-size: 1.7rem;
+    padding-bottom: 1rem;
+    padding-left: 2.4rem;
+    font-family: 'Gelasio', serif; 
+}
+

@@ -1,0 +1,25 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    background: #F0E9E0;
+    flex-direction: column;
+}
+
+.text{
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.paragrafo{
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.btn{
+    padding: 15px 55px;
+    background: #fff;
+    text-decoration: none;
+    color: black;
+}

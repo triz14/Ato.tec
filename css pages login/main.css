@@ -1,0 +1,112 @@
+.main-login{
+    width: 90vw;
+    height: 80vh;
+    background: #F0E9E0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login{
+    width: 45vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3.5rem;
+}
+
+.rigth-login{
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login{
+    width: 115%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.875rem 2.1875rem;
+    background: #C9A4FF;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000020;
+    margin-top: 2.5rem;
+}
+
+.card-login > h1{
+    color: black;
+    font-weight: 800;
+    margin: 0;
+    font-family: 'Itim', cursive; 
+}
+
+.textfield{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.textfield > input{
+    width: 100%;
+    margin-right: 120px;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px #00000020;
+    outline: none;
+    font-family: 'Gelasio', serif;
+}
+
+.textfield > label{
+    margin-bottom: 10px;
+    color: black;
+    font-size: 12.5pt;
+    font-family: 'Gelasio', serif;
+}
+
+.textfield > input::placeholder{
+    color: gray;
+}
+
+.cadastre-se{
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    margin-right: 1.2rem;
+    font-size: 11.5pt;
+    font-family: 'Gelasio', serif;
+}
+
+.cadastre-se > a{
+    color: #fff;
+}
+
+.btn-login{
+    width: 100%;
+    padding: 0.9375rem;
+    margin-right: 160px;
+    border: 2.5px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    font-size: 11pt;
+    letter-spacing: 0.8px;
+    transition: 0.3s;
+    font-family: 'Gelasio', serif;
+}
+
+.btn-login:hover{
+    background: black;
+    color: #fff;
+}

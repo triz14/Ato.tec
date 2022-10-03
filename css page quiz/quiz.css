@@ -1,0 +1,896 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(imagem\ de\ fundo\ do\ quiz.jpg);
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    position: fixed; 
+    top: 0px; 
+    background: black; 
+    width: 100%; 
+    z-index: 1000; 
+} 
+
+section{
+    position: relative;
+    height: calc(100vh - 3rem);
+    width: 100%;
+}
+
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; 
+    left: 0;
+} 
+
+.container{
+    max-width: 65rem;
+    padding: 0.5rem 2rem;
+    padding-top: 1rem; 
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+    font-family: 'Gelasio', serif; 
+}
+
+.logo-container{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn{
+    flex: 3;
+    display: flex;
+}
+
+.nav-links{
+    flex: 2;
+}
+
+.nav-link{
+    list-style: none;
+}
+
+.log-sign{
+    display: flex;
+    justify-content: flex-end;                                      
+    align-items: center;
+    flex: 1;
+}
+
+.btn{
+    display: inline-block;
+    padding: .5rem 1.3rem;
+    font-size: .8rem;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    line-height: 1;
+    margin: 0 .2rem;
+    transition: .3s;
+    text-transform: uppercase;
+}
+
+.btn.solid, .btn.transparent:hover{
+    background-color: #fff; 
+    color: black; 
+    font-family: 'Gelasio', serif; 
+}
+
+.btn.transparent, .btn.solid:hover{
+    background-color: transparent;
+    color: #fff;
+    font-family: 'Gelasio', serif; 
+}
+
+.nav-links > ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link{
+    position: relative;
+}
+
+.nav-link > a{
+    line-height: 3rem;
+    color: #fff;
+    padding: 0 .8rem;
+    letter-spacing: 1px;
+    font-size: .94rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .5s;
+}
+
+.nav-link > a > i{
+    margin-left: .2rem;
+}
+
+.nav-link:hover > a{
+    transform: scale(1.1);
+}
+
+.dropdown{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 10rem;
+    transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.dropdown ul{
+    position: relative;
+    list-style: none; 
+}
+
+.dropdown-link > a{
+    display: flex;
+    background-color: #fff;
+    color: black;
+    padding: .5rem 1rem;
+    font-size: .9rem;
+    align-items: center;
+    justify-content: space-between;
+    transition: .3s;
+}
+
+.dropdown-link:hover > a{
+    background-color: black;
+    color: #fff;
+}
+
+.dropdown-link:not(:nth-last-child(2)){
+    border-bottom: 1px solid #efefef; 
+}
+
+.dropdown-link i{
+    transform: rotate(-90deg);
+}
+
+.arrow{
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: -5.5px;
+    left: 32px;
+    background-color: #fff;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: .3s;
+    z-index: -1;
+}
+
+.dropdown-link:first-child:hover ~ .arrow{
+    background-color: black;  
+}
+
+.dropdown-link{
+    position: relative;
+}
+
+.dropdown.second{
+    top: 0;
+    left: 100%;
+    padding-left: .8rem;
+    cursor: pointer;
+    transform: translateX(10px);
+}
+
+.dropdown.second .arrow{
+    top: 10px;
+    left: -5.5px;
+}
+
+.nav-link:hover > .dropdown,
+.dropdown-link:hover > .dropdown{
+    transform: translate(0, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hamburger-menu-container{
+    flex: 1;
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hamburger-menu{
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hamburger-menu div{
+    width: 1.6rem;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+    position: relative;
+    z-index: 1001;
+    transition: .5s;
+}
+
+.hamburger-menu div:before,
+.hamburger-menu div:after{
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #fff; 
+    border-radius: 3px;
+    transition: .5s;
+}
+
+.hamburger-menu div:before{
+    transform: translateY(-7px);
+}
+
+.hamburger-menu div:after{
+    transform: translateY(7px);
+}
+
+#check{
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    z-index: 90000;
+    cursor: pointer;
+    opacity: 0;
+    display: none;
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div{
+    background-color: transparent;
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div:before{
+    transform: translateY(0) rotate(-45deg);
+}
+
+#check:checked ~ .hamburger-menu-container .hamburger-menu div:after{
+    transform: translateY(0) rotate(45deg);
+}
+
+@keyframes animation{
+    from{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 920px){
+    .hamburger-menu-container{
+        display: flex;
+    }
+
+    #check{
+        display: block;
+    }
+
+    .nav-btn{
+        position: fixed;
+        height: calc(100vh - 3rem);
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        background-color: black;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: .65s;
+    }
+
+    #check:checked ~ .nav-btn{
+        transform: translateX(0);
+    }
+
+    #check:checked ~ .nav-btn .nav-link,
+    #check:checked ~ .nav-btn .log-sign{
+        animation: animation .5s ease forwards var(--i);
+    }  
+
+    .nav-links{
+        flex: initial;
+        width: 100%;
+    }
+
+    .nav-links > ul{
+        flex-direction: column;
+    }
+
+    .nav-link{
+        width: 100%;
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    .nav-link > a{
+        line-height: 1;
+        padding: 1.6rem 2rem;
+    }
+
+    .nav-link:hover > a{
+        transform: scale(1);
+        background-color: #1C1C1C;
+        color: #fff;
+    }
+
+    .dropdown{
+        position: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
+        opacity: 1;
+        pointer-events: auto;
+        width: 100%;
+        padding: 0;
+        background-color: #363636;
+        display: none;
+
+    }
+    
+    .nav-link:hover > .dropdown,
+    .dropdown-link:hover > .dropdown{
+        display: block;
+    }
+
+    .nav-link:hover > a > i,
+    .dropdown-link:hover > a > i{
+        transform: rotate(360deg);
+    } 
+
+    .dropdown-link > a{
+        background-color: transparent;
+        color: #fff;
+        padding: 1.2rem 2rem;
+        line-height: 1;
+    }
+
+    .dropdown-link > a{
+        padding: 1.2rem 2rem 1.2rem 3rem;
+    }
+
+    .dropdown-link > a{
+        padding: 1.2rem 2rem 1.2rem 4rem;
+    }
+
+    .dropdown-link:not(:nth-last-child(2)){
+        border-bottom: none;
+    }
+
+    .arrow{
+        z-index: 1;
+        background-color: #1C1C1C;
+        left: 10%;
+        transform: scale(1.1) rotate(45deg);
+        transition: .5s;
+    } 
+
+    .nav-link:hover .arrow{
+        background-color: #1C1C1C;
+    }   
+
+    .dropdown .dropdown .arrow{
+        display: none;
+    }
+
+    .dropdown-link:hover > a{
+        background-color: #4F4F4F;
+        color: #fff;
+    }
+
+    .dropdown-link:first-child:hover ~ .arrow{
+        background-color: #4F4F4F;
+    }   
+
+    .nav-link > a > i{
+        font-size: 1.1rem;
+        transform: rotate(-90deg);
+        transition: .7s;
+    }
+
+    .dropdown i{
+        font-size: 1rem;
+        transition: .7s;
+    }
+
+    .log-sign{
+        flex: initial;
+        width: 100%;
+        padding: 1.5rem 1.9rem;
+        justify-content: flex-start;
+        opacity: 0;
+        transform: translateY(15px);
+    } 
+
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#tituloQuiz {
+    font-weight: 800;
+    margin-top: 8rem;
+    font-size: 50px;
+    font-family: 'Itim', cursive;
+    transition: all 0.3s ease;
+}
+
+.grupoQuiz {
+    background: #C9A4FF;
+    border-radius: 1.5rem;
+    width: 24rem;
+    height: 12rem;
+    margin-top: 3rem;
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.grupoQuiz p {
+    margin-top: 8rem;
+    font-size: 20.5px;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    padding: 0;
+    font-family: 'Gelasio', serif;
+}
+
+section .caixaQuiz {
+    height: 30rem;
+}
+
+.caixaQuiz,
+.caixaResultados,
+.pontuacaoAtual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0,2),
+                0 6px 20px 0 rgba(0,0,0,0,19);
+    transition: all 0.3s ease;
+}
+
+.caixaQuiz.activeQuiz,
+.caixaResultados.activeResultados {
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.grupoQuiz.activeInicio {
+    opacity: 1;
+    z-index: 5;
+}
+
+.pontuacaoAtual.activePontuacao {
+    opacity: 1;
+    z-index: 5;
+}
+
+.img_Regras {
+    position: absolute;
+    top: 86%;
+    left: 92%;
+    transform: translate(-50%, -50%);
+    width: 2rem;
+}
+
+#botaoIniciar button {
+    font-size: 25px;
+    font-weight: 600;
+    background: #FFF;
+    border: 1px #000000 solid;
+    padding: 0.325rem;
+    padding-inline: 2.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-bottom: 8rem;
+    font-family: 'Itim', cursive;
+}
+
+#botaoIniciar button:hover {
+    color: #FFF;
+    background: #000000;
+    border: 1px #FFF solid;
+}
+
+.caixaQuiz {
+    width: 35rem;
+    height: 28rem;
+    margin-top: 3rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background: #C9A4FF;
+    border-radius: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.questoesErodape {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cabecalhoQuiz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.segundosTempo {
+    margin-top: 2rem;
+    margin-right: 2.5rem;
+    font-size: 18px;
+    font-weight: 500;
+    background: #977BBF;
+    border: 1px solid #fff;
+    height: 2.5rem;
+    width: 3.5rem;
+    padding-bottom: 2rem;
+    padding-top: 0.5rem;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    font-family: 'Gelasio', serif;
+
+}
+
+.caixaQuiz .linhaTempo {
+    position: relative;
+    z-index: 5;
+    height: 5px;
+    max-width: 33rem;
+    background: #977BBF;
+    border-radius: 10px;
+    margin-left: 0rem;
+    transition: all 0.3s ease;
+}
+
+.caixaQuiz .linhaFundoTempo {
+    position: relative;
+    z-index: 1;
+    height: 5px;
+    max-width: 33rem;
+    background: #FFF;
+    border-radius: 10px;
+    margin-left: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.caixaQuiz section {
+    padding: 2.5rem 3rem 2rem 3rem;
+    background: #C9A4FF;
+}
+
+.caixaQuiz .questoesTexto {
+    margin-top: 2rem;
+    margin-left: 2.4rem;
+    font-size: 16px;
+    font-weight: 550;
+    font-family: 'Gelasio', serif;
+}
+
+.caixaQuiz .questoesAlt {
+    margin-top: 1.5rem;
+}
+
+.questoesAlt .alternativa {
+    display: flex;
+    position: relative;
+    color: #FFF;
+    background: #977BBF;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0.2rem;
+    padding: 0.8rem 0.5rem;
+    width: 30rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    margin-left: 2.5rem;
+    font-size: 14px;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Gelasio', serif;
+}
+
+.questoesAlt .alternativa:hover {
+    color: #977BBF;
+    background: #fff;
+    border-color: #977BBF;
+}
+
+.questoesAlt .alternativa:last-child {
+    margin-bottom: 0rem;
+}
+
+.questoesAlt .alternativa i {
+    display: flex;
+    height: 2.6rem;
+    width: 2.6rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.questoesAlt .alternativa .iconeTick {
+    color: rgba(0,0,0,0.1);
+    margin-top: 0.02rem;
+}
+
+.questoesAlt .alternativa .iconeCross {
+    color: rgba(0,0,0,0.1);
+    margin-top: 0.08rem;
+}
+
+.questoesAlt .alternativa.correta {
+    color: #fff;
+    background: #268F24;
+    border-color: #fff;
+}
+
+.questoesAlt .alternativa.correta:hover {
+    color: #fff;
+    background: #28b32594;
+    border-color: #fff;
+}
+
+.questoesAlt .alternativa.errada {
+    color: #fff;
+    border-color: #fff;
+    background: #C00303;
+}
+
+.questoesAlt .alternativa.errada:hover {
+    color: #fff;
+    border-color: #fff;
+    background: #dd3939be;
+}
+
+.questoesAlt .alternativa.desabilitada {
+    pointer-events: none;
+}
+
+.caixaQuiz .rodapeQuiz {
+    height: 0;
+    width: 35rem;
+    padding: 1rem;
+    margin-top: 3rem;
+    margin-left: 51%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    transform: translate(-50%, -50%) scale(0.9);
+    
+}
+
+.caixaQuiz .rodapeQuiz .totalQuestoes span {
+    display: flex;
+    margin-left: 0rem;
+    user-select: none;
+    font-family: 'Gelasio', serif;
+    font-size: 18px;
+}
+
+.totalQuestoes span p {
+    padding-right: 0.5rem;
+    margin: 0;
+    font-family: 'Gelasio', serif;
+    font-size: 18px;
+    margin-left: 0.5rem;
+}
+
+.totalQuestoes span p:first-child {
+    margin-left: 0;
+}
+
+.rodapeQuiz .proxBotao {
+    display: none;
+    height: 2.5rem;
+    padding: 0.325rem;
+    padding-inline: 3rem;
+    margin-left: 12.8rem;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Itim', cursive;
+    border: none;
+    outline: none;
+    color: #000000;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(0.95);
+    transition: all 0.3s ease;
+}
+
+.rodapeQuiz .proxBotao:hover {
+    background: rgba(0,0,0,0.1);
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.pontuacaoAtual {
+    margin-top: 18.2rem;
+    background: #977BBF;
+    padding: 0.15rem;
+    padding-inline: 1.5rem;
+    border-radius: 6px;
+    margin-right: 0rem;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    font-family: 'Gelasio', serif;
+    font-size: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.pontuacaoAtual span {
+    display: inline;
+}
+
+.pontuacaoAtual span p {
+    display: inline;
+}
+
+.caixaResultados {
+    background: #C9A4FF;
+    width: 30rem;
+    height: 30rem;
+    padding: 2rem 5rem;
+    border-radius: 1.5rem;
+    margin-top: 2rem;
+    display: flex;
+    text-align: center; 
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between; 
+    font-family: 'Gelasio', serif;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.comemoracao {
+    margin-top: 0.5rem;
+    width: 12rem;
+    height: 10rem;
+}
+
+.caixaResultados .textoFinal {
+    margin-top: 0;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.caixaResultados .textoFinal span {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.caixaResultados .pontuacaoFinal p {
+    display: inline-flex;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.pontuacaoFinal p span {
+    font-weight: 600;
+    font-size: 20px;
+    margin-inline: 0.2rem;
+}
+
+#botoesFinais {
+    width: 35rem;
+}
+
+.pontuacaoFinal #botoesFinais {
+    font-family: 'Gelasio', serif;
+}
+
+.trofeu {
+    display: inline-flex;
+    height: 1.5rem;
+}
+
+#botoesFinais button { 
+    display: inline;
+    margin-top: 1rem;
+    height: 2.5rem;
+    width: 9rem;
+    outline: none;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: 'Itim', cursive;
+    color: #000000;
+    background: #fff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#botoesFinais .botaoJogarNov {
+    color: #000000;
+    background: #fff;
+    border: 1px solid #000000;
+    margin-right: 0.08rem;
+}
+
+#botoesFinais .botaoJogarNov:hover {
+    color: #fff;
+    background: #000000;
+    border: 1px solid #fff;
+}
+
+#botoesFinais .botaoSair {
+    color: #fff;
+    background: #000000;
+    border: 1px solid #fff;
+    margin-left: 0.08rem;
+}
+
+#botoesFinais .botaoSair:hover {
+    color: #000000;
+    background: #fff;
+    border: 1px solid #000000;
+}

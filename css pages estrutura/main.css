@@ -1,0 +1,36 @@
+.titulo{
+    background: #FFD26E;
+    font-family: 'Itim', cursive; 
+    justify-content: center;
+    display: flex; 
+    padding-block: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.paragrafo-1{
+    margin-top: 1.8rem;
+    margin-bottom: 0rem;
+}
+
+.paragrafo-1, .paragrafo-2, .paragrafo-3, .paragrafo-4, .paragrafo-5,
+.paragrafo-6, .paragrafo-7{
+    font-family: 'Gelasio', serif; 
+    font-size: 1.4rem;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    text-align: justify;
+    text-indent: 3rem;
+    padding-bottom: 0.8rem;
+} 
+
+/* .paragrafo-2{
+    padding-bottom: 2.5rem;
+} */
+ 
+.estrutura, .protons, .neutron, .eletrons{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem; 
+    margin-top: 2rem;
+} 
+
